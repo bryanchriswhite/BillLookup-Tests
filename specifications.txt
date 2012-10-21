@@ -1,0 +1,111 @@
+
+filters/new
+  renders new filter form
+
+FiltersController
+  GET edit
+    assigns the requested filter as @filter
+  POST create
+    with valid params
+      redirects to the created filter
+      assigns a newly created filter as @filter
+      creates a new Filter
+    with invalid params
+      assigns a newly created but unsaved filter as @filter
+      re-renders the 'new' template
+  GET show
+    assigns the requested filter as @filter
+  PUT update
+    with valid params
+      redirects to the filter
+      assigns the requested filter as @filter
+      updates the requested filter
+    with invalid params
+      assigns the filter as @filter
+      re-renders the 'edit' template
+  DELETE destroy
+    destroys the requested filter
+    redirects to the filters list
+  GET new
+    assigns a new filter as @filter
+  GET index
+    assigns all filters as @filters
+
+BillsController
+  GET edit
+    assigns the requested bill as @bill
+  POST create
+    with valid params
+      redirects to the created bill
+      assigns a newly created bill as @bill
+      creates a new Bill
+    with invalid params
+      assigns a newly created but unsaved bill as @bill
+      re-renders the 'new' template
+  GET show
+    assigns the requested bill as @bill
+  PUT update
+    with valid params
+      redirects to the bill
+      assigns the requested bill as @bill
+      updates the requested bill
+    with invalid params
+      assigns the bill as @bill
+      re-renders the 'edit' template
+  DELETE destroy
+    destroys the requested bill
+    redirects to the bills list
+  GET new
+    assigns a new bill as @bill
+  GET index
+    assigns all bills as @bills
+
+bills/show
+  renders attributes in <p>
+
+BillsController
+  routing
+    routes to #edit
+    routes to #create
+    routes to #new
+    routes to #update
+    routes to #destroy
+    routes to #show
+    routes to #index
+
+bills/index
+  renders a list of bills
+
+bills/edit
+  renders the edit bill form
+
+search/index.html.haml
+  renders the search form
+
+FiltersController
+  routing
+    routes to #edit
+    routes to #create
+    routes to #new
+    routes to #update
+    routes to #destroy
+    routes to #show
+    routes to #index
+
+filters/edit
+  renders the edit filter form
+
+bills/new
+  renders new bill form
+
+filters/show
+  renders attributes in <p>
+
+filters/index
+  renders a list of filters
+
+Finished in 0.78169 seconds
+55 examples, 0 failures
+
+Randomized with seed 56840
+
