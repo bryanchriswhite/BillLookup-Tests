@@ -13,6 +13,7 @@ Feature: Search by selected field
 			| 5           | marsh kyle     | some company, LLC    | 043-NW0-25-543 |
 			| 6           | tyler hall     |                      | 843-NE6-53-101 |
 			| 7           | smith marshall |                      | 048-NW3-26-101 |
+		And the default viewables
 		And the default search filters
 		When I visit the search page
 		Then I should see all filters

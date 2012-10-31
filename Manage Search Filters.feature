@@ -3,7 +3,7 @@ Feature: Manage search filters
 	A system administrator
 	Should be able to enable/disable the default filters as well as create, edit and delete new ones
 
-	Background: Generate filters
+	Background: Default fiters are shown
 		Given the default search filters
 		When I visit the search page
 		Then I should see all filters

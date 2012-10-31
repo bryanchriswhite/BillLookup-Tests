@@ -5,6 +5,7 @@ Feature: Search By Automatic
 
 	Background: Navigating to the search page for the first time
 		Given I am a new user
+		And the default viewables
 		And these bills:
 			| bill_number | map_number        | name_1      |
 			| 1           | 043-NW0-25-101    | smith john  |
