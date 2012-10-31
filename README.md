@@ -56,8 +56,8 @@ _Viewables_ are used to show or hide the pieces of data that are available for v
 
 ### How They Work [ / will work]
 
-Each viewable has a `visibility` attribute; this will determine if and how (by default) the viewable will be displayed, along with it's respective bit of data.
-For example, the `Name 1` viewable corresponds to the `name_1` field in a bill. If it's visibility is set to `show` (terrible I know, read TODO below), then the `Name 1` label and the `name_1` of the current bill will be visible only on that bills 'show' page. If visibility is set to 'header' then it will be visible in the results table (coming soon) but not on the 'show' page. Both is self-explanitory.
+Each viewable has an `allowed_as_header` and an `allowed_as_label` attribute; these will determine if and how (by default) the viewable will be displayed, along with it's respective bit of data.
+For example, the `Name 1` viewable corresponds to the `name_1` field in a bill. If it's `allowed_as_label` is set to true but its `allowed_as_header` is set to false, then the `Name 1` label and the `name_1` of the current bill will be visible only on that bills 'show' page. `Name 1` won't show up as a header on the results table. If `allowed_as_header` is set to true but `allowed_as_label` is set to false then it will be visible in the results table (coming soon) but not on the 'show' page. If both are true then the viewable shows as a table header and on the bill 'show' page.
 
 There will be a distinction between what viewables are _allowed permission_ to be visible for and what viewables are _configured_ to be visible for. There will defaults for both which can be changed by a user with the appropriate role. If a user is not logged in, these changes (called _preferences_) will persist as long as the session.
 
@@ -66,9 +66,9 @@ Viewables manager is located [here](http://heroku.bryanchriswhite.com/viewables)
 
 **TODO**
 * Add viewables management to the administrative interface
-* Prevent the deletion/creation of new viewablesi
+* Viewables will be related to the weights table to allow for preferential ordering in the table head
+* Prevent the deletion/creation of new viewables
 	The available viewables are finite and will populate a listbox instead of being typed!!
-* More meaningful `visibility` attribute (in progress)
 * Distinguish between viewable permissions and preferences
 * Allow users to set viewable preferences (based on user account or session if user is not logged in)
 * Allow sorting based on viewables (in the results table)

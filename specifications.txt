@@ -1,95 +1,39 @@
 
-bills/show
-  renders attributes in .viewable
+filters/index
+  renders a list of filters
 
-ViewablesController
-  DELETE destroy
-    destroys the requested viewable
-    redirects to the viewables list
-  GET show
-    assigns the requested viewable as @viewable
-  GET new
-    assigns a new viewable as @viewable
-  PUT update
-    with valid params
-      updates the requested viewable
-      assigns the requested viewable as @viewable
-      redirects to the viewable
-    with invalid params
-      assigns the viewable as @viewable
-      re-renders the 'edit' template
-  GET index
-    assigns all viewables as @viewables
-  POST create
-    with valid params
-      creates a new Viewable
-      assigns a newly created viewable as @viewable
-      redirects to the created viewable
-    with invalid params
-      assigns a newly created but unsaved viewable as @viewable
-      re-renders the 'new' template
-  GET edit
-    assigns the requested viewable as @viewable
-
-FiltersController
-  routing
-    routes to #destroy
-    routes to #new
-    routes to #show
-    routes to #update
-    routes to #index
-    routes to #create
-    routes to #edit
-
-bills/edit
-  renders the edit bill form
-
-filters/new
-  renders new filter form
+filters/edit
+  renders the edit filter form
 
 BillsController
   DELETE destroy
-    destroys the requested bill
     redirects to the bills list
+    destroys the requested bill
   GET show
+    assigns all viewables that are allowed as labels on show to @viewables
     assigns the requested bill as @bill
-    assigns all viewables that are visible on show to @viewables
+  PUT update
+    with invalid params
+      re-renders the 'edit' template
+      assigns the bill as @bill
+    with valid params
+      redirects to the bill
+      assigns the requested bill as @bill
+      updates the requested bill
+  POST create
+    with invalid params
+      re-renders the 'new' template
+      assigns a newly created but unsaved bill as @bill
+    with valid params
+      redirects to the created bill
+      assigns a newly created bill as @bill
+      creates a new Bill
   GET new
     assigns a new bill as @bill
-  PUT update
-    with valid params
-      updates the requested bill
-      assigns the requested bill as @bill
-      redirects to the bill
-    with invalid params
-      assigns the bill as @bill
-      re-renders the 'edit' template
   GET index
     assigns all bills as @bills
-  POST create
-    with valid params
-      creates a new Bill
-      assigns a newly created bill as @bill
-      redirects to the created bill
-    with invalid params
-      assigns a newly created but unsaved bill as @bill
-      re-renders the 'new' template
   GET edit
     assigns the requested bill as @bill
-
-viewables/edit
-  renders the edit viewable form
-
-Viewable
-  returns a list of viewables whose visibility attribute is either 'show', 'header' or 'both' when sent the message visible_anywhere
-  returns its id when called sent the to_s message
-
-filters/show
-  renders attributes in <p>
-
-Viewables
-  GET /viewables
-    works! (now write some real specs)
 
 bills/index
   renders a list of bills
@@ -98,74 +42,130 @@ BillsController
   routing
     routes to #destroy
     routes to #new
-    routes to #show
     routes to #update
-    routes to #index
     routes to #create
+    routes to #show
+    routes to #index
     routes to #edit
-
-FiltersController
-  DELETE destroy
-    destroys the requested filter
-    redirects to the filters list
-  GET show
-    assigns the requested filter as @filter
-  GET new
-    assigns a new filter as @filter
-  PUT update
-    with valid params
-      updates the requested filter
-      assigns the requested filter as @filter
-      redirects to the filter
-    with invalid params
-      assigns the filter as @filter
-      re-renders the 'edit' template
-  GET index
-    assigns all filters as @filters
-  POST create
-    with valid params
-      creates a new Filter
-      assigns a newly created filter as @filter
-      redirects to the created filter
-    with invalid params
-      assigns a newly created but unsaved filter as @filter
-      re-renders the 'new' template
-  GET edit
-    assigns the requested filter as @filter
-
-filters/index
-  renders a list of filters
-
-search/index.html.haml
-  renders the search form
-
-bills/new
-  renders new bill form
-
-viewables/index
-  renders a list of viewables
-
-filters/edit
-  renders the edit filter form
 
 viewables/new
   renders new viewable form
+
+bills/show
+  renders attributes in .viewable
+
+FiltersController
+  routing
+    routes to #destroy
+    routes to #new
+    routes to #update
+    routes to #create
+    routes to #show
+    routes to #index
+    routes to #edit
+
+bills/edit
+  renders the edit bill form
+
+Viewables
+  GET /viewables
+    works! (now write some real specs)
 
 ViewablesController
   routing
     routes to #destroy
     routes to #new
-    routes to #show
     routes to #update
-    routes to #index
     routes to #create
+    routes to #show
+    routes to #index
     routes to #edit
+
+search/index.html.haml
+  renders the search form
+
+filters/new
+  renders new filter form
+
+ViewablesController
+  DELETE destroy
+    redirects to the viewables list
+    destroys the requested viewable
+  GET show
+    assigns the requested viewable as @viewable
+  PUT update
+    with invalid params
+      re-renders the 'edit' template
+      assigns the viewable as @viewable
+    with valid params
+      redirects to the viewable
+      assigns the requested viewable as @viewable
+      updates the requested viewable
+  POST create
+    with invalid params
+      re-renders the 'new' template
+      assigns a newly created but unsaved viewable as @viewable
+    with valid params
+      redirects to the created viewable
+      assigns a newly created viewable as @viewable
+      creates a new Viewable
+  GET new
+    assigns a new viewable as @viewable
+  GET index
+    assigns all viewables as @viewables
+  GET edit
+    assigns the requested viewable as @viewable
+
+Viewable
+  returns its id when called sent the to_s message
+  returns a list of viewables whose visibility attribute is either 'show', 'header' or 'both' when sent the message allowed_anywhere
 
 viewables/show
   renders attributes in <p>
 
-Finished in 2.78 seconds
+FiltersController
+  DELETE destroy
+    redirects to the filters list
+    destroys the requested filter
+  GET show
+    assigns the requested filter as @filter
+  PUT update
+    with invalid params
+      re-renders the 'edit' template
+      assigns the filter as @filter
+    with valid params
+      redirects to the filter
+      assigns the requested filter as @filter
+      updates the requested filter
+  POST create
+    with invalid params
+      re-renders the 'new' template
+      assigns a newly created but unsaved filter as @filter
+    with valid params
+      redirects to the created filter
+      assigns a newly created filter as @filter
+      creates a new Filter
+  GET new
+    assigns a new filter as @filter
+  GET index
+    assigns all filters as @filters
+  GET edit
+    assigns the requested filter as @filter
+
+viewables/index
+  renders a list of viewables
+
+filters/show
+  renders attributes in <p>
+
+viewables/edit
+  renders the edit viewable form
+
+bills/new
+  renders new bill form
+
+Finished in 2.84 seconds
 86 examples, 0 failures
 
-Randomized with seed 18982
+Randomized with seed 35358
 
